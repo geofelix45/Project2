@@ -15,11 +15,11 @@ public class DBConnection {
 	
 	// Attributes..
 	
-	private static final String HOST = "127.0.0.1";
-	private static final int PORT = 3306;
-	private static final String USERNAME = "root";
-	private static final String DATABASE = "addressdb";
-	private static final String PASSWORD = "S4lt5you*";
+	//private static final String HOST = "127.0.0.1";
+	//private static final int PORT = 3306;
+	//private static final String USERNAME = "root";
+	//private static final String DATABASE = "addressdb";
+	//private static final String PASSWORD = "S4lt5you*";
 	private Connection connection;
 	private Statement statement;
 
@@ -31,9 +31,9 @@ public class DBConnection {
 	public DBConnection() throws SQLException {
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (ClassNotFoundException e) {}
-		connection = DriverManager.getConnection("jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE, USERNAME, PASSWORD);
+		connection = DriverManager.getConnection("jdbc:oracle:thin:mcs1007/TkmwytAS@adcsdb01.csueastbay.edu:1521/mcspdb.ad.csueastbay.edu");
 		statement = connection.createStatement();
 
 	}
@@ -92,5 +92,6 @@ public class DBConnection {
 		connection.close();
 		
 	}
+
 	
 }
